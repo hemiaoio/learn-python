@@ -1,0 +1,65 @@
+
+def check_number_exists(str):
+    isnumeric = False
+    for c in str:
+        if c.isnumeric():
+            isnumeric = True
+            break
+
+    return isnumeric
+
+
+def check_letter_exists(str):
+
+    isalpha = False
+
+    for c in str:
+        if c.isalpha():
+            isalpha = True
+            break
+    return isalpha
+
+
+def main():
+
+    try_times = 5
+
+    while try_times > 0:
+
+        password_str = input("请输入密码：")
+
+        strength_level = 0
+
+        # 规则一：密码长度大于8
+        if len(password_str) >= 8:
+            strength_level += 1
+        else:
+            print('密码长度要求至少8位！')
+            try_times -= 1
+            continue
+
+        # 规则二：包含数字
+        if check_number_exists(password_str):
+            strength_level += 1
+        else:
+            print('密码中必须包含数字！')
+            try_times -= 1
+            continue
+
+        # 规则三：包含字母
+        if check_letter_exists(password_str):
+            strength_level += 1
+        else:
+            print('密码中必须包含字母！')
+            try_times -= 1
+            continue
+
+        if(strength_level == 3):
+            print('恭喜,您的密码符合规范！')
+            break
+    if(try_times <= 0):
+        print('尝试次数过多！')
+
+
+if __name__ == '__main__':
+    main()
