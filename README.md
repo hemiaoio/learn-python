@@ -1,2 +1,4 @@
 # pylearning
-learning python from https://www.liaoxuefeng.com/
+learning python from Robin_TY@chinahadoop
+
+http://www.chinahadoop.cn/course/1040
